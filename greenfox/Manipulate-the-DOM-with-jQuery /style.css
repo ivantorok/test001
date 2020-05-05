@@ -1,0 +1,19 @@
+h1 {
+    color: darkorange;
+    font: bold;
+}
+
+h2 {
+    color: purple;
+    font: bold;
+}
+
+ol {
+    color: purple;
+    text-decoration-line: underline;
+    list-style-type: upper-roman;
+}
+
+.black {
+    color: black;
+}
