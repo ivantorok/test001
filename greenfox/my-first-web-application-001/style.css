@@ -1,0 +1,35 @@
+#container {
+    margin: auto;
+    width: 1000px;
+    display: flex;
+    /* justify-content: center; */
+}
+
+img {
+    display: block;
+    max-width: 700px;
+}
+
+#button {
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+#right {
+    transform: rotate(0.5turn);
+}
+
+#main {
+    display: flex;
+    /* flex-direction: row; */
+}
+
+#imageContainer {
+    position: relative;
+}
+
+#subtitle {
+    position: absolute;
+    bottom: 0;
+}
