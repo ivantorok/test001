@@ -47,29 +47,37 @@ html {
 }
 
 #main {
+    position: relative;
     display: flex;
     /* margin: auto; */
     /* height: 365px;
     width: 700px; */
-    width: 850px;
-    height: 100%;
+    width: 1000px;
+    height: 360px;
     /* background-color: rgb(182, 182, 182); */
     /* justify-content: flex-end; */
     /* flex-direction: row; */
     /* align-items: stretch; */
     /* justify-self: stretch; */
     justify-content: space-between;
+    align-items: center;
     /* justify-content: center; */
     /* align-items: center; */
+    /* -webkit-box-shadow: 0px 2px 5px 3px rgba(189, 189, 189, 1);
+    -moz-box-shadow: 0px 2px 5px 3px rgba(189, 189, 189, 1);
+    box-shadow: 0px 2px 5px 3px rgba(189, 189, 189, 1); */
 }
 
-#photo {
+#photo,
+.hidden {
     /* display: block; */
     /* flex-shrink: inherit; */
     /* width: 100%;
     height: auto; */
-    max-width: 600px;
+    max-width: 900px;
     max-height: 360px;
+    width: auto;
+    height: auto;
     /* max-width: 80%; */
     /* max-height: 100%; */
     /* margin-right: 50px;
@@ -83,16 +91,23 @@ html {
     /* height: 100%; */
     /* margin: auto; */
     padding: 0 50px;
+    height: 100%;
     display: flex;
-    /* background-color: rgb(172, 172, 172); */
+    background-color: rgba(216, 216, 216, 0.87);
     /* align-items: center; */
     /* justify-content: center; */
     /* align-self: stretch; */
     /* justify-self: stretch; */
+    -webkit-box-shadow: 0px 2px 5px 3px rgba(189, 189, 189, 1);
+    -moz-box-shadow: 0px 2px 5px 3px rgba(189, 189, 189, 1);
+    box-shadow: 0px 2px 5px 3px rgba(189, 189, 189, 1);
 }
 
 .button:hover {
-    opacity: 50%;
+    opacity: .75;
+    /* background-color: rgba(128, 128, 128, .2); */
+    /* background-color: rgba(216, 216, 216, 0.2);
+    color: rgba(160, 31, 31, 0.829); */
 }
 
 #right {
@@ -102,21 +117,50 @@ html {
 }
 
 
-/* 
-#imageContainer {
+/* #imageContainer {
     position: relative;
-}
+} */
 
 #subtitle {
     position: absolute;
     bottom: 0;
-} */
+    left: 50%;
+    /* margin-left: calc(calc(100% - 229px) / -2); */
+    /* justify-content: center; */
+    background-color: rgba(128, 128, 128, .2);
+    /* opacity: 50%; */
+    height: 100px;
+    /* width: 600px; */
+    width: calc(100% - 230px);
+}
+
+#title,
+#description {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    right: 16px;
+    font-size: 18px;
+    color: whitesmoke;
+    opacity: 0.75;
+}
+
+#title {
+    bottom: 1.8em;
+    font-size: 32px;
+}
 
 .button,
-img {
+img,
+#title,
+#description {
     user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -o-user-select: none;
+}
+
+.hidden {
+    visibility: hidden;
 }

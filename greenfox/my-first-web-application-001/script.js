@@ -1,15 +1,17 @@
-let data = {
-    photo: 'images/chocolate-4455840_1920.jpg',
-    title: 'My title',
-    description: 'What happened here, why is this a very nice image'
-};
+// let data = {
+//     photo: 'images/chocolate-4455840_1920.jpg',
+//     title: 'My title',
+//     description: 'What happened here, why is this a very nice image'
+// };
 
 
-$('#photo').attr('src', data.photo);
+// $('#photo').attr('src', data.photo);
 
 
 
-
+$('#photo').css('visibility', 'hidden');
+$('#subtitle').css('visibility', 'hidden');
+// $('#photo').css('visibility', 'hidden');
 let currentPhoto = 4;
 let imagesData = [{
     photo: 'images/chocolate-4455840_1920.jpg',
@@ -52,7 +54,17 @@ let imagesData = [{
     title: 'My title',
     description: 'What happened here, why is this a very nice image'
 }];
-$('#photo').attr('src', imagesData[currentPhoto].photo);
+// $('#photo').attr('src', imagesData[currentPhoto].photo);
+
+setTimeout(function() {
+    nextImage(1);
+    $('#photo').css('visibility', '');
+    $('#subtitle').css('visibility', '');
+
+}, 900);
+
+
+
 
 // console.log(currentPhoto);
 
@@ -109,16 +121,63 @@ $(document).keydown(function(e) {
     // }
 });
 
+function moveIndex(currentPosition, array, moveItBy) {
+    console.log(currentPosition, moveItBy);
+    nextPosition = currentPosition + moveItBy;
+    console.log(nextPosition);
+    if (nextPosition < 0) {
+        nextPosition = array.length + currentPosition + moveItBy;
+    }
+    console.log(nextPosition);
+
+    if (nextPosition >= array.length) {
+        nextPosition = currentPosition + moveItBy - array.length;
+    }
+    console.log(nextPosition);
+    return nextPosition;
+}
+
+function preloadImage(currentPhoto) {
+    preloadImageIndex = moveIndex(currentPhoto, imagesData, 1)
+    $('.photos-1').attr('src', imagesData[preloadImageIndex].photo);
+    preloadImageIndex = moveIndex(currentPhoto, imagesData, -1)
+    $('.photos-2').attr('src', imagesData[preloadImageIndex].photo);
+}
 
 function nextImage(direction) {
-    currentPhoto = currentPhoto + direction;
-    if (currentPhoto < 0) {
-        currentPhoto = imagesData.length - 1;
-    }
-    if (currentPhoto > imagesData.length - 1) {
-        currentPhoto = 0;
-    }
+    // $('#subtitle').css('display', 'none');
+    currentPhoto = moveIndex(currentPhoto, imagesData, direction);
+
+    // $('#photo').css('display', 'none');
     $('#photo').attr('src', imagesData[currentPhoto].photo);
+    // $('#photo').width();
+    let currentWidth = 0;
+    // $('#subtitle').removeAttr('margin-left');
+    if (direction == 1) {
+        currentWidth = $('.photos-1').width();
+    } else {
+        currentWidth = $('.photos-2').width();
+
+    }
+
+    // console.log(currentWidth);
+    $('#subtitle').width(currentWidth);
+    let currentLeftMargin = currentWidth / -2;
+    // console.log(currentLeftMargin);
+    $('#subtitle').css('margin-left', currentLeftMargin); //do something special
+    // $('#subtitle').css('transition', 'visibility 0s, opacity §.5s linear');
+    // $('#subtitle').css('display', '');
+    // $('#photo').css('display', '');
+
+
+
+
+    $('#title').text(imagesData[currentPhoto].title);
+    $('#description').text(imagesData[currentPhoto].description);
+    preloadImage(currentPhoto);
+
+    // $('#subtitle').attr('margin-left', currentLeftMargin);
+    // $(selector).attr(attributeName, value);
 
 }
 
@@ -151,3 +210,6 @@ function nextImage(direction) {
 // let loadimage = (image) => {
 
 // }
+setTimeout(function() {
+    nextImage(1);
+}, 500);
