@@ -51,7 +51,7 @@ html {
     /* margin: auto; */
     /* height: 365px;
     width: 700px; */
-    width: 100%;
+    width: 850px;
     height: 100%;
     /* background-color: rgb(182, 182, 182); */
     /* justify-content: flex-end; */
@@ -59,6 +59,7 @@ html {
     /* align-items: stretch; */
     /* justify-self: stretch; */
     justify-content: space-between;
+    /* justify-content: center; */
     /* align-items: center; */
 }
 
@@ -81,7 +82,7 @@ html {
     /* min-width: 50px; */
     /* height: 100%; */
     /* margin: auto; */
-    margin: 0 50px;
+    padding: 0 50px;
     display: flex;
     /* background-color: rgb(172, 172, 172); */
     /* align-items: center; */
@@ -110,3 +111,12 @@ html {
     position: absolute;
     bottom: 0;
 } */
+
+.button,
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
